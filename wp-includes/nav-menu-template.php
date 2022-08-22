@@ -63,7 +63,7 @@ function wp_nav_menu( $args = array() ) {
 		'container_class'      => '',
 		'container_id'         => '',
 		'container_aria_label' => '',
-		'menu_class'           => 'menu',
+		'menu_class'           => 'menu navbar-nav',
 		'menu_id'              => '',
 		'echo'                 => true,
 		'fallback_cb'          => 'wp_page_menu',
@@ -71,7 +71,7 @@ function wp_nav_menu( $args = array() ) {
 		'after'                => '',
 		'link_before'          => '',
 		'link_after'           => '',
-		'items_wrap'           => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+		'items_wrap'           => '<ul class="navbar-nav"</ul>',
 		'item_spacing'         => 'preserve',
 		'depth'                => 0,
 		'walker'               => '',
@@ -436,6 +436,7 @@ function _wp_menu_item_classes_by_context( &$menu_items ) {
 				$classes[] = 'page_item';
 				$classes[] = 'page-item-' . $menu_item->object_id;
 				$classes[] = 'current_page_item';
+				$classes[] = 'nav-item';
 			}
 
 			$active_parent_item_ids[]   = (int) $menu_item->menu_item_parent;

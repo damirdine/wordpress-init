@@ -9,14 +9,13 @@
 </head>
 
 <body>
-    <header>
-        <?php   
+    <header class="navbar">
+        <div class="container">
+        <?php
         wp_nav_menu([
             'theme_location' => 'headerNav',
             'container' => false,
         ]);
-    ?>
-    <?php
-        
-    ?>
+        ?>
+        </div>
     </header>
