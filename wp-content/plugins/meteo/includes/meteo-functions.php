@@ -33,7 +33,13 @@ function admin_settings_meteo()
     );
 }
 function admin_settings_meteo_html(){
-    settings_fields('temperature_unit');
-    var_dump(get_option('unit'));
+    settings_fields('temperature_unit_and_city');
+    if(!get_option('unit')){
+        add_option('unit','metric');
+    }
+    if(!get_option('city')){
+        add_option('city','Nantes');
+    }
+    var_dump(get_option('unit'),get_option('city'));
     include('meteo-page.php');
 }

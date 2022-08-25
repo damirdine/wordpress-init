@@ -6,7 +6,7 @@
     <h1>Meteo</h1>
     <h2>Bienvenue dans l'assistant Meteo</h2>
     <form action="">
-        <div class="input"><label for="">Ville par defaut</label><input type="text" name="city"></div>
+        <div class="input"><label for="">Ville par defaut</label><input type="text" name="city" value="<?=get_option('city')?>"></div>
         <div class="input"><label for="">Unite pour les temperatures</label><select name="unit" id="">
                 <option value="metric" <?= get_option('unit') === 'metric' ? 'selected' : '' ?>>Celcius</option>
                 <option value="imperial" <?= get_option('unit') === 'imperial' ? 'selected' : '' ?>>Fahrenheit</option>
