@@ -1,9 +1,13 @@
 <?php 
 function getApi()
 {
-    $url = 'https://api.openweathermap.org/data/2.5/weather?q=nantes&units=metric&lang=fr&appid=92c3fd34ea87fe572aaad5a6f99029fb';
+    $city = get_option('city');
+    $unit = get_option('unit');
+    
+    $url = 'https://api.openweathermap.org/data/2.5/weather?q='. $city .'&units=' . $unit . '&lang=fr&appid=92c3fd34ea87fe572aaad5a6f99029fb';
     $json_data = file_get_contents($url);
     $response = json_decode($json_data);
+
     return $response;
 }
 function display()
@@ -33,7 +37,6 @@ function admin_settings_meteo()
     );
 }
 function admin_settings_meteo_html(){
-    settings_fields('temperature_unit_and_city');
     if(!get_option('unit')){
         add_option('unit','metric');
     }
@@ -41,5 +44,7 @@ function admin_settings_meteo_html(){
         add_option('city','Nantes');
     }
     var_dump(get_option('unit'),get_option('city'));
+    settings_fields('temperature_unit_and_city');
+    do_settings_sections('temperature_unit_and_city');
     include('meteo-page.php');
 }

@@ -5,7 +5,7 @@
 <div class="wrap ">
     <h1>Meteo</h1>
     <h2>Bienvenue dans l'assistant Meteo</h2>
-    <form action="">
+    <form action="options.php" method="post">
         <div class="input"><label for="">Ville par defaut</label><input type="text" name="city" value="<?=get_option('city')?>"></div>
         <div class="input"><label for="">Unite pour les temperatures</label><select name="unit" id="">
                 <option value="metric" <?= get_option('unit') === 'metric' ? 'selected' : '' ?>>Celcius</option>
